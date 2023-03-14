@@ -8,12 +8,17 @@ import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstr
 function App() {
 
   const API_URL = "https://api.themoviedb.org/3"
+  const API_SEARCH="https://api.themoviedb.org/3/search/movie?api_key=670ab1cd0ceaf592ba7be80c8098630f&query"
   const [movies, setMovies] = useState([])
+  const [query, setQuery]=useState('')
+  const [searchKey, setSearchKey ] = useState ("")
 
-  const fetchMovies = async () => {
-    const {data: {results}} = await axios.get(`${API_URL}/discover/movie`, {
+  const fetchMovies = async (searchKey) => {
+    const type = searchKey ? "search" : "discover"
+    const {data: {results}} = await axios.get(`${API_URL}/${type}/movie`, {
       params: {
-        api_key: process.env.REACT_APP_MOVIE_API_KEY
+        api_key: process.env.REACT_APP_MOVIE_API_KEY,
+        query: searchKey
       }
     })
  
@@ -32,7 +37,15 @@ fetchMovies()
       />
     ))
   )
+  
+const searchMovies = (e) => {
+  e.preventDefault()
+  fetchMovies(searchKey)
+}
 
+  const changeHandler=(e)=>{
+    setQuery(e.target.value);
+  }
   return (
     <>
     <Navbar bg="dark" expand="lg" variant="dark">
@@ -40,19 +53,21 @@ fetchMovies()
       <Navbar.Brand href="/home">MovieDb App</Navbar.Brand>
       <Navbar.Brand href="/home">Trending</Navbar.Brand>
 <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-  <Navbar.Collapse id="nabarScroll">
+  <Navbar.Collapse id="navbarScroll">
     <Nav
     className="me-auto my-2 my-lg-3"
     style={{maxHeight: '100px'}}
     navbarScroll></Nav>
 
-<Form className="d-flex">
+<Form className="d-flex" onSubmit={searchMovies}>
   <FormControl
-  type="search"
+  type="search" onChangeCapture={(e) => setSearchKey(e.target.value)}
   placeholder="Movie Search"
+  
   className="me-2"
-  aria-lable="search"
-  name=""></FormControl>
+  aria-label="search"
+  name="query"
+  value={query} onChange={changeHandler}></FormControl>
   <Button variant="secondary" type="submit">Search</Button>
 </Form>
 </Navbar.Collapse>
@@ -60,7 +75,7 @@ fetchMovies()
     </Navbar>
     <div className="App">
       <h1> Hello Youtube </h1>
-      <div class="container w-400 bg-dark d-flex justify-content-center">
+      <div className="container w-400 bg-dark d-flex justify-content-center">
     <div className="grid">
         {renderMovies()}
       </div>
