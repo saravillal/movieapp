@@ -1,7 +1,8 @@
 import React from 'react';
 
-const MovieCard = ({movie, overview}) => {
+const MovieCard = ({movie}) => {
     const IMAGE_PATH = "https://image.tmdb.org/t/p/w500"
+    console.log(movie)
     return (
         <div className="card text_center bg-secendary mb-3">
             {movie.poster_path ? <img src={`${IMAGE_PATH}${movie.poster_path}`} alt=""/>
@@ -9,6 +10,7 @@ const MovieCard = ({movie, overview}) => {
     }
 <h5>{movie.title}</h5>
 <p>{movie.overview}</p>
+<p>{movie.popularity}</p>
         </div>
     );
 };
