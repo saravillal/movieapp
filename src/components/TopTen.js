@@ -17,15 +17,22 @@ function TopTen(props){
   let moviesPagination = movies.slice(0, 10);
 
   return(
-    <div id="topTen">
+    <div className="App">
+        <h1>Top 10 Movies</h1>
+        <div className="container">
+    <div className="grid">
       {moviesPagination.map((movie, index) => (
         <MovieCard
         key={movie.id}
         movie={movie}
         />
       ))}
+      </div>
+    </div>
     </div>
   );
 }
+
+
 
 export default TopTen;

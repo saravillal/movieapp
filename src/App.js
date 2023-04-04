@@ -63,20 +63,11 @@ const searchMovies = (e) => {
     navbarScroll></Nav>
 
 <Nav className="mr-auto">
-          <Nav.Link href="/">Top10</Nav.Link>
+          <Nav.Link href="/TopTen">Top10</Nav.Link>
           <Nav.Link href="/">Hola</Nav.Link>
         </Nav>
 
-      <BrowserRouter>
-        <div id="content">
-          <Routes>
-            <Route path="/" exact element={<TopTen/>} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-   
-
-<Form className="d-flex" onSubmit={searchMovies}>
+        <Form className="d-flex" onSubmit={searchMovies}>
   <FormControl
   type="search" onChangeCapture={(e) => setSearchKey(e.target.value)}
   placeholder="Movie Search"
@@ -87,14 +78,25 @@ const searchMovies = (e) => {
   value={query} onChange={changeHandler}></FormControl>
   <Button variant="secondary" type="submit">Search</Button>
 </Form>
-
-
 </Navbar.Collapse>
     </Container>
     </Navbar>
+
+        <BrowserRouter>
+        <div id="content">
+          <Routes>
+            <Route path="/TopTen" exact element={<TopTen/>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+   
+
+
+
+
     <div className="App">
-      <h1> Hello Youtube </h1>
-      <div className="container w-400 bg-dark d-flex justify-content-center">
+      <h1> Movies </h1>
+      <div className="container">
     <div className="grid">
         {renderMovies()}
       </div>
