@@ -9,6 +9,7 @@ const MovieCard = ({movie}) => {
 : null
     }
 <h5>{movie.title}</h5>
+<h5>{movie.original_title}</h5>
 <p>{movie.overview}</p>
 <p>{movie.popularity}</p>
         </div>

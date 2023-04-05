@@ -20,7 +20,7 @@ function App() {
 
   const fetchMovies = async (searchKey) => {
     const type = searchKey ? "search" : "discover"
-    const {data: {results}} = await axios.get(`${API_URL}/${type}/movie`, {
+    const {data: {results}} = await axios.get(`${API_URL}/${type}/movie?api_key=670ab1cd0ceaf592ba7be80c8098630f&language=en-US&page=1&include_adult=false`, {
       params: {
         api_key: process.env.REACT_APP_MOVIE_API_KEY,
         query: searchKey
@@ -85,7 +85,7 @@ const searchMovies = (e) => {
         <BrowserRouter>
         <div id="content">
           <Routes>
-            <Route path="/TopTen" exact element={<TopTen/>} />
+            <Route path="/TopTen" exact element={<TopTen/>}/>
           </Routes>
         </div>
       </BrowserRouter>
