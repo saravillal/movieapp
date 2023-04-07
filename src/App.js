@@ -58,13 +58,13 @@ const searchMovies = (e) => {
     <Container fluid>
   <Navbar.Collapse id="navbarScroll">
     <Nav
-    className="me-auto my-2 my-lg-3"
+    className="me-auto my-2 my-lg-3"          
     style={{maxHeight: '100px'}}
     navbarScroll></Nav>
 
 <Nav className="mr-auto">
           <Nav.Link href="/TopTen">Top10</Nav.Link>
-          <Nav.Link href="/">Hola</Nav.Link>
+          <Nav.Link href="/">Movies</Nav.Link>
         </Nav>
 
         <Form className="d-flex" onSubmit={searchMovies}>
@@ -94,9 +94,9 @@ const searchMovies = (e) => {
 
 
 
-    <div className="App">
-      <h1> Movies </h1>
-      <div className="container">
+    <div className="title" ml-5 pt-5>
+      <h1>Movies</h1>
+      <div className="container mt-5">
     <div className="grid">
         {renderMovies()}
       </div>
