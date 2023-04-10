@@ -1,38 +1,105 @@
-.App {
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 0.1em;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 3rem;
+}
+
+.card {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  width: 250px;
+  height: autopx;
+  margin: 0.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.poster {
+  width: 100%;
+  height: 300px;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ background-color: white;
+ height: 100%;
+
+}
+
+.title {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.box {
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.movieTitle {
+ color: black;
+font-weight: bold;
+  text-align: center;
+}
+
+.overview {
+  margin-top: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-height: 100%;
+  background-color: black;
+  opacity: 0.9;
   color: white;
+  box-sizing: border-box;
+  padding: 1rem;
+  transition: all 0.4s ease-in-out;
+  overflow-y: auto;
+  transform: translateY(101%);
+
 }
 
-.App-link {
-  color: #61dafb;
+.movie-details:hover .overview {
+  transform: translateY(0%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rating {
+  margin-left: 150px;
+  margin-top: -45px;
+  color: #5C636A;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: inset 0 5px 5px rgba(0,0,0,0.5);
+  right: 7px;
+  bottom: 7px;
+  
+
 }
+
+
+
+
