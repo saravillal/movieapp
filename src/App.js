@@ -54,7 +54,7 @@ const searchMovies = (e) => {
  
   return (
     <>
-    <Navbar bg="dark" expand="lg" variant="dark">
+    <Navbar bg="black" expand="lg" variant="dark">
     <Container fluid>
   <Navbar.Collapse id="navbarScroll">
     <Nav
@@ -94,14 +94,12 @@ const searchMovies = (e) => {
 
 
 
-    <div className="title" ml-5 pt-5>
-      <h1>Movies</h1>
-      <div className="container mt-5">
+    <div className="title">
+      <h3>Movies</h3>
+      </div>
     <div className="grid">
         {renderMovies()}
-      </div>
-      </div>
-      </div>
+      </div>  
       </>
   );
 }

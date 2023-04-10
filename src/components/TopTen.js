@@ -17,9 +17,9 @@ function TopTen(props){
   let moviesPagination = movies.slice(0, 10);
 
   return(
-    <div className="App">
-        <h1>Top 10 Movies</h1>
-        <div className="container">
+    <div>
+    <div className="title">
+        <h3>Top 10 Movies</h3></div>
     <div className="grid">
       {moviesPagination.map((movie, index) => (
         <MovieCard
@@ -27,7 +27,6 @@ function TopTen(props){
         movie={movie}
         />
       ))}
-      </div>
     </div>
     </div>
   );
